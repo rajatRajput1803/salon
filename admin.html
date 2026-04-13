@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BDM Salon Admin</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="admin-brand">ADMIN</div>
+      <nav class="admin-menu">
+        <button data-view="home" class="menu-item active">Home</button>
+        <button data-view="orders" class="menu-item">Orders</button>
+        <button data-view="stylists" class="menu-item">Stylists</button>
+        <button data-view="services" class="menu-item">Services</button>
+      </nav>
+      <a class="button button-danger logout-button" href="index.html">Logout</a>
+      <div class="admin-footer">© 2025 Admin Dashboard</div>
+    </aside>
+
+    <section class="admin-main">
+      <header class="admin-header">
+        <div></div>
+        <div class="header-actions">
+          <span class="notification">New Orders <span class="badge" id="new-order-count">0</span></span>
+        </div>
+      </header>
+
+      <div id="home-view" class="admin-view active">
+        <h1>Appointment Overview</h1>
+        <div class="overview-grid">
+          <div class="metric-card metric-pending">
+            <div class="metric-label">Pending</div>
+            <div id="metric-pending" class="metric-value">0</div>
+          </div>
+          <div class="metric-card metric-completed">
+            <div class="metric-label">Completed</div>
+            <div id="metric-completed" class="metric-value">0</div>
+          </div>
+          <div class="metric-card metric-cancelled">
+            <div class="metric-label">Cancelled</div>
+            <div id="metric-cancelled" class="metric-value">0</div>
+          </div>
+        </div>
+        <div class="overview-grid small">
+          <div class="metric-card metric-info"><div class="metric-label">Today</div><div id="metric-today">0</div></div>
+          <div class="metric-card metric-info"><div class="metric-label">Tomorrow</div><div id="metric-tomorrow">0</div></div>
+          <div class="metric-card metric-info"><div class="metric-label">This Week</div><div id="metric-week">0</div></div>
+          <div class="metric-card metric-info"><div class="metric-label">This Month</div><div id="metric-month">0</div></div>
+        </div>
+        <div class="table-card">
+          <div class="table-card-title">Recent Appointments</div>
+          <div class="table-responsive" id="recent-orders-table"></div>
+        </div>
+      </div>
+
+      <div id="orders-view" class="admin-view hidden">
+        <h1>Orders Management</h1>
+        <div class="tab-row">
+          <button class="tab-button active" data-tab="new">New Orders</button>
+          <button class="tab-button" data-tab="accepted">Accepted</button>
+          <button class="tab-button" data-tab="cancelled">Cancelled</button>
+        </div>
+        <div id="orders-list" class="order-cards"></div>
+      </div>
+
+      <div id="stylists-view" class="admin-view hidden">
+        <h1>Manage Stylists</h1>
+        <button class="button button-primary" id="add-stylist-button">Add New Stylist</button>
+        <div class="card-grid" id="stylists-list"></div>
+      </div>
+
+      <div id="services-view" class="admin-view hidden">
+        <h1>Manage Services</h1>
+        <div class="service-form-row">
+          <input id="service-name" placeholder="Service Name" />
+          <input id="service-description" placeholder="Description" />
+          <input id="service-duration" placeholder="Duration e.g. 30 min" />
+          <input id="service-price" placeholder="$25" />
+          <select id="service-category"><option value="Hair">Hair</option><option value="Beard">Beard</option><option value="Skin">Skin</option><option value="Nails">Nails</option><option value="Makeup">Makeup</option><option value="Brows">Brows</option><option value="Lashes">Lashes</option></select>
+          <button class="button button-primary" id="add-service-button">Add Service</button>
+        </div>
+        <div class="card-grid" id="services-list"></div>
+      </div>
+    </section>
+  </div>
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BDM Salon | Book Your Appointment</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="page-header">
+    <div class="brand">BDMSALON</div>
+    <nav class="top-nav">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="button button-secondary" href="admin.html">Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-label">Experience Precision</div>
+        <h1>Elevate Your Style</h1>
+        <p>Expert haircuts and styling tailored to highlight your natural beauty and confidence.</p>
+        <div class="hero-actions">
+          <button class="button button-primary" onclick="scrollToSection('booking')">Book Your Appointment</button>
+          <button class="button button-secondary" onclick="scrollToSection('services-panel')">View Our Services</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking-panel" id="booking">
+      <div class="wizard-header">
+        <h2 id="wizard-title">Step 1: Choose Service</h2>
+        <div class="wizard-controls">
+          <button class="button button-secondary" id="back-button" disabled>Back</button>
+          <button class="button button-primary" id="next-button">Next</button>
+        </div>
+      </div>
+
+      <div class="wizard-step" id="step-1">
+        <div class="filter-row">
+          <select id="category-filter" aria-label="Filter services">
+            <option value="all">All Categories</option>
+          </select>
+        </div>
+        <div class="card-grid" id="service-cards"></div>
+      </div>
+
+      <div class="wizard-step hidden" id="step-2">
+        <div class="card-grid" id="stylist-cards"></div>
+      </div>
+
+      <div class="wizard-step hidden" id="step-3">
+        <div class="appointment-form">
+          <div class="form-group">
+            <label for="appointment-date">Choose Date</label>
+            <input type="date" id="appointment-date" min="2025-01-01" />
+          </div>
+          <div class="form-group">
+            <label for="appointment-time">Choose Time</label>
+            <select id="appointment-time">
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="11:00 AM">11:00 AM</option>
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="01:00 PM">01:00 PM</option>
+              <option value="02:00 PM">02:00 PM</option>
+              <option value="03:00 PM">03:00 PM</option>
+              <option value="04:00 PM">04:00 PM</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="location-select">Location</label>
+            <select id="location-select">
+              <option>BDM Salon, Main Street</option>
+              <option>BDM Salon, Downtown</option>
+              <option>BDM Salon, Uptown</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="wizard-step hidden" id="step-4">
+        <div class="appointment-form">
+          <div class="form-group">
+            <label for="customer-name">Name</label>
+            <input type="text" id="customer-name" placeholder="Your name" />
+          </div>
+          <div class="form-group">
+            <label for="customer-phone">Phone Number</label>
+            <input type="tel" id="customer-phone" placeholder="+123456789" />
+          </div>
+          <div class="form-group">
+            <label for="customer-email">Email</label>
+            <input type="email" id="customer-email" placeholder="you@example.com" />
+          </div>
+        </div>
+      </div>
+
+      <div class="wizard-step hidden" id="step-5">
+        <div class="summary-grid">
+          <div class="summary-card">
+            <h3>Service Details</h3>
+            <div class="summary-list" id="summary-service"></div>
+          </div>
+          <div class="summary-card">
+            <h3>Your Stylist</h3>
+            <div class="summary-list" id="summary-stylist"></div>
+          </div>
+          <div class="summary-card">
+            <h3>Appointment</h3>
+            <div class="summary-list" id="summary-appointment"></div>
+          </div>
+          <div class="summary-card">
+            <h3>Your Details</h3>
+            <div class="summary-list" id="summary-contact"></div>
+          </div>
+        </div>
+        <button class="button button-primary" id="confirm-button">Confirm Booking</button>
+      </div>
+
+      <div class="message-box hidden" id="confirmation-message">
+        <h3>Booking Confirmed!</h3>
+        <p>Your appointment has been saved. You can visit the admin page to manage orders.</p>
+      </div>
+    </section>
+
+    <section class="services-panel" id="services-panel">
+      <h2>Featured Services</h2>
+      <div class="card-grid" id="featured-services"></div>
+    </section>
+  </main>
+
+  <script src="booking.js"></script>
+</body>
+</html>
